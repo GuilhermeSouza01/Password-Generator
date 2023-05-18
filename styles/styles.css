@@ -4,9 +4,9 @@
     --secondary-button-color: #eafbed;
     --accent-color: #34d554;
     --text-color: #08260e;
-
+    --sub-text: #828282;
+    --container-color: #fff
 }
-
 
 
 body {
@@ -14,4 +14,62 @@ body {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
     padding: 2rem;
+}
+
+main {
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.hero .title {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 1.5rem;
+}
+
+.hero .subtitle {
+    font-size: 1.125rem;
+    color: var(--sub-text);
+}
+
+.password-container {
+
+    background-color: var(--secondary-button-color);
+    box-shadow: 0 1px 2px rgba(132, 148, 165, 0.1);
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+
+.options-container {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+}
+
+.options-container .input-text {
+    flex: 1;
+}
+
+.options-container .input-text input {
+    font-family: "Inconsolata", serif;
+    font-size: 3rem;
+    border: none;
+    outline: none;
+    cursor: default;
+    height: 52px;
+    width: 100%;
+    transition: all 0.2s;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: var(--secondary-button-color);
 }
