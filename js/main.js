@@ -1,6 +1,7 @@
 const passwordLengthEl = document.querySelector("#password-length");
 const passInput = document.getElementById("password-input");
 const copyPassButton = document.querySelector("#copy-button");
+const simpleCopyButton = document.querySelector("#simple-copy-pass");
 
 let rangeValue = 16;
 
@@ -22,6 +23,7 @@ const copyPass = () => {
 };
 
 copyPassButton.addEventListener("click", copyPass);
+simpleCopyButton.addEventListener("click", copyPass);
 
 passwordLengthEl.addEventListener("input", () => {
   rangeValue = passwordLengthEl.value;
