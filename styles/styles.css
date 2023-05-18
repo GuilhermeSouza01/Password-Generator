@@ -1,0 +1,17 @@
+:root {
+    --main-bg-color: #fbfefb;
+    --primary-color: #49da66;
+    --secondary-button-color: #eafbed;
+    --accent-color: #34d554;
+    --text-color: #08260e;
+
+}
+
+
+
+body {
+    background-color: var(--main-bg-color);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-color);
+    padding: 2rem;
+}
