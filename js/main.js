@@ -2,12 +2,29 @@ const passwordLengthEl = document.querySelector("#password-length");
 const passInput = document.getElementById("password-input");
 const copyPassButton = document.querySelector("#copy-button");
 const simpleCopyButton = document.querySelector("#simple-copy-pass");
+const upperCaseCheckEl = document.querySelector("#uppercase-check");
+const numberCheckEl = document.querySelector("#number-check");
+const symbolCheckEl = document.querySelector("#symbol-check");
 
 let rangeValue = 16;
 
 function generatePass() {
-  const chars =
-    "abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789?!@&*()[]#";
+  let chars = "abcdefghjkmnpqrstuvwxyz";
+
+  const upperCaseChars = "ABCDEFGHJKMNPQRSTUVWXYZ";
+  const numbersChars = "123456789";
+  const symbolChars = "?!@&*()[]#";
+
+  if (upperCaseCheckEl.checked) {
+    chars += upperCaseChars;
+  }
+  if (numberCheckEl.checked) {
+    chars += numbersChars;
+  }
+
+  if (symbolCheckEl.checked) {
+    chars += symbolChars;
+  }
 
   let password = "";
 
@@ -24,6 +41,12 @@ const copyPass = () => {
 
 copyPassButton.addEventListener("click", copyPass);
 simpleCopyButton.addEventListener("click", copyPass);
+
+// add event listener to checks
+
+upperCaseCheckEl.addEventListener("click", generatePass);
+numberCheckEl.addEventListener("click", generatePass);
+symbolCheckEl.addEventListener("click", generatePass);
 
 passwordLengthEl.addEventListener("input", () => {
   rangeValue = passwordLengthEl.value;
