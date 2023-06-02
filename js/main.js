@@ -50,6 +50,7 @@ symbolCheckEl.addEventListener("click", generatePass);
 
 passwordLengthEl.addEventListener("input", () => {
   rangeValue = passwordLengthEl.value;
+  document.querySelector("#pass-length-text").innerText = rangeValue;
   generatePass();
 });
 
