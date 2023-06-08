@@ -82,7 +82,7 @@ const changeFontSize = () => {
     passInput.classList.remove("font-sm");
     passInput.classList.add("font-xs");
     passInput.classList.remove("font-xxs");
-  } else if (rangeValue > 22) {
+  } else if (rangeValue > 23) {
     passInput.classList.add("font-sm");
     passInput.classList.remove("font-xs");
     passInput.classList.remove("font-xxs");
