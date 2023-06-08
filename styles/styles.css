@@ -77,6 +77,18 @@ main {
     background-color: var(--secondary-button-color);
 }
 
+.options-container .input-text input.font-sm {
+    font-size: 2rem;
+}
+
+.options-container .input-text input.font-xs {
+    font-size: 1.5rem;
+}
+
+.options-container .input-text input.font-xxs {
+    font-size: 1rem;
+}
+
 .options-container .actions button {
     background-color: transparent;
     border: none;
@@ -295,5 +307,31 @@ main {
     100% {
         -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .options-container .input-text {
+        padding: 1rem;
+    }
+
+    .options-container .input-text input {
+        font-size: 1.5rem;
+    }
+
+    .options-container .input-text input.font-sm {
+        font-size: 1.2rem;
+    }
+
+    .options-container .input-text input.font-xs {
+        font-size: 1rem;
+    }
+
+    .options-container .input-text input.font-sm {
+        font-size: 0.85rem;
+    }
+
+    .options-container .actions img {
+        width: 24px;
     }
 }

@@ -36,6 +36,7 @@ function generatePass() {
   }
   passInput.value = password;
   qualityOfPassword();
+  changeFontSize();
 }
 
 function qualityOfPassword() {
@@ -71,6 +72,26 @@ function qualityOfPassword() {
     securityBarEl.classList.add("completed");
   }
 }
+
+const changeFontSize = () => {
+  if (rangeValue > 45) {
+    passInput.classList.remove("font-sm");
+    passInput.classList.remove("font-xs");
+    passInput.classList.add("font-xxs");
+  } else if (rangeValue > 35) {
+    passInput.classList.remove("font-sm");
+    passInput.classList.add("font-xs");
+    passInput.classList.remove("font-xxs");
+  } else if (rangeValue > 22) {
+    passInput.classList.add("font-sm");
+    passInput.classList.remove("font-xs");
+    passInput.classList.remove("font-xxs");
+  } else {
+    passInput.classList.remove("font-sm");
+    passInput.classList.remove("font-xs");
+    passInput.classList.remove("font-xxs");
+  }
+};
 
 const copyPass = () => {
   navigator.clipboard.writeText(passInput.value);
