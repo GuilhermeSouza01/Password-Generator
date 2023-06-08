@@ -2,6 +2,7 @@ const passwordLengthEl = document.querySelector("#password-length");
 const passInput = document.getElementById("password-input");
 const copyPassButton = document.querySelector("#copy-button");
 const simpleCopyButton = document.querySelector("#simple-copy-pass");
+const renewButton = document.querySelector("#renew");
 const upperCaseCheckEl = document.querySelector("#uppercase-check");
 const numberCheckEl = document.querySelector("#number-check");
 const symbolCheckEl = document.querySelector("#symbol-check");
@@ -43,11 +44,32 @@ function qualityOfPassword() {
   const percent = Math.round(
     (rangeValue / 64) * 25 +
       (upperCaseCheckEl.checked ? 20 : 0) +
-      (numberCheckEl.checked ? 20 : 0) +
-      (symbolCheckEl.checked ? 25 : 0)
+      (numberCheckEl.checked ? 25 : 0) +
+      (symbolCheckEl.checked ? 30 : 0)
   );
-  console.log(percent);
+
   securityBarEl.style.width = `${percent}%`;
+
+  if (percent > 69) {
+    //safe
+    securityBarEl.classList.remove("critical");
+    securityBarEl.classList.remove("warning");
+    securityBarEl.classList.add("safe");
+  } else if (percent > 50) {
+    //warning
+    securityBarEl.classList.remove("critical");
+    securityBarEl.classList.add("warning");
+    securityBarEl.classList.remove("safe");
+  } else if (percent < 50) {
+    //crtitical
+    securityBarEl.classList.add("critical");
+    securityBarEl.classList.remove("warning");
+    securityBarEl.classList.remove("safe");
+  }
+
+  if (percent >= 100) {
+    securityBarEl.classList.add("completed");
+  }
 }
 
 const copyPass = () => {
@@ -55,8 +77,18 @@ const copyPass = () => {
 };
 
 copyPassButton.addEventListener("click", copyPass);
-simpleCopyButton.addEventListener("click", copyPass);
+simpleCopyButton.addEventListener("click", () => {
+  copyPass();
+  simpleCopyButton.classList.add("pulse-copy");
+});
+renewButton.addEventListener("click", function () {
+  generatePass();
+  renewButton.classList.add("rotate-button");
 
+  setTimeout(() => {
+    renewButton.classList.remove("rotate-button");
+  }, 600);
+});
 // add event listener to checks
 
 upperCaseCheckEl.addEventListener("click", generatePass);
